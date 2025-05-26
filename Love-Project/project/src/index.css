@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #ff6b81;
+  --secondary-color: #ff4757;
+  --background-color: #fff5f6;
+  --text-color: #2f3542;
+  --glass-white: rgba(255, 255, 255, 0.25);
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+/* Floating Hearts Animation */
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  transform: rotate(45deg);
+  animation: floatHeart 6s ease-in infinite;
+  opacity: 0.8;
+}
+
+.heart:before,
+.heart:after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart:before {
+  left: -10px;
+}
+
+.heart:after {
+  top: -10px;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: rotate(45deg) translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(45deg) translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Romantic glowing header */
+.romantic-header {
+  font-size: 3rem;
+  color: var(--primary-color);
+  text-shadow: 0 0 10px #ff8fa3, 0 0 20px #ffe4e9;
+  animation: glow 2s ease-in-out infinite alternate;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ff8fa3, 0 0 20px #ffe4e9;
+  }
+  to {
+    text-shadow: 0 0 20px #ff6b81, 0 0 30px #ffd6dd;
+  }
+}
+
+/* Navigation link with romantic hover */
+.nav-link {
+  @apply px-4 py-2 text-lg font-medium transition-colors duration-200;
+  color: var(--text-color);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+  text-shadow: 0 0 5px #ff8fa3;
+}
+
+/* Section spacing with soft romantic tone */
+.section {
+  @apply min-h-screen py-20 px-4;
+  background: linear-gradient(180deg, #fff5f6 0%, #ffe6f0 100%);
+}
+
+/* Timeline glass card */
+.timeline-content {
+  @apply rounded-lg shadow-lg p-6;
+  background: var(--glass-white);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.timeline-content:hover {
+  transform: translateY(-5px);
+}
